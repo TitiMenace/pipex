@@ -6,11 +6,11 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 05:15:52 by tschecro          #+#    #+#              #
-#    Updated: 2023/08/25 23:26:27 by titilamenace     ###   ########.fr        #
+#    Updated: 2023/08/26 00:10:49 by titilamenace     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_FILES		=	main.c split.c strjoin.c get_cmd_args.c get_cmd.c /
+SRC_FILES		=	main.c split.c strjoin.c get_cmd_args.c get_cmd.c \
 					get_cmd_utils.c
 
 SRC_DIR 		= src
