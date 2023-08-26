@@ -2,12 +2,10 @@
 #include "struct.h"
 #include "includes.h"
 
-bool	get_cmd_args(t_data *data, char *cmd)
+bool	get_cmd_args(t_cmd *cmd, char *str)
 {
-	data->cmd_args = ft_split(cmd, " \a\b\t\n\v\f\r");
-	if (!data->cmd_args)
+	cmd->args = ft_split(str, " \a\b\t\n\v\f\r");
+	if (!cmd->args)
 		return (false);
 	return (true);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: titilamenace <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 21:33:57 by titilamenace      #+#    #+#             */
-/*   Updated: 2023/08/25 21:34:24 by titilamenace     ###   ########.fr       */
+/*   Updated: 2023/08/26 17:22:23 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 
 //Functions from file : get_cmd_args.c
-bool	get_cmd_args(t_data *data, char *cmd);
+bool	get_cmd_args(t_cmd *cmd, char *str);
 
 //Functions from file : main.c
 //Functions from file : strjoin.c
@@ -48,6 +48,6 @@ bool	get_paths(t_data *data, char **env);
 
 char	*find_path(t_data *data, char *cmd);
 
-void	exec_cmd(char *path_cmd, char **env, t_data *data);
+void	exec_cmd(char *path_cmd, char **env, char **args);
 
 #endif

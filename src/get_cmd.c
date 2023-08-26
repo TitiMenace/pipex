@@ -40,7 +40,7 @@ bool	get_paths(t_data *data, char **env)
 	}
 }
 
-char	*find_path(t_data *data, char *cmd)
+char	*find_path(t_data *data, char *str)
 {	
 	char	*path;
 	int		i;
@@ -48,7 +48,7 @@ char	*find_path(t_data *data, char *cmd)
 	i = 0;
 	while (data->paths[i])
 	{
-		path = cmd_join(data->paths[i], cmd);
+		path = cmd_join(data->paths[i], str);
 	if (!path)
 			return (NULL);
 		if (access(path, F_OK) == 0)
@@ -58,7 +58,7 @@ char	*find_path(t_data *data, char *cmd)
 	return (NULL);
 }
 	
-void	exec_cmd(char *path_cmd, char **env, t_data *data)
+void	exec_cmd(char *path_cmd, char **env, char **args)
 {
-	execve(path_cmd, data->cmd_args, env);
+	execve(path_cmd, args, env);
 }

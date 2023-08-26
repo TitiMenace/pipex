@@ -4,11 +4,22 @@
 # include "pipex.h"
 # include "includes.h"
 
+
+typedef struct	s_cmd
+{
+	int		fd_in;
+	int		fd_out;
+	char	*path;
+	char	**args;
+}				t_cmd;
+
+
+
 typedef struct	s_data
 {
 	char	**paths;
-	char	*cmd_path;
-	char	**cmd_args;
+	char	*file_in;
+	char	*file_out;
 }				t_data;
 
 
