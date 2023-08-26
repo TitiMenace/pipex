@@ -6,9 +6,12 @@ int	main(int ac, char **av, char **env)
 {
 	t_data	data;
 	t_cmd	cmd;
-
-	(void)ac;
 	int	pipe_fd[2];
+
+	if (ac != 5)
+		return (1);
+	if (!get_files(&data, av));
+		return (1);
 	pid_t	pid;
 	get_paths(&data, env); // recup le env | grep PATH
 	get_cmd_args(&cmd, av[1]); // recup le nom de la commande et ses args dans un tab de tab

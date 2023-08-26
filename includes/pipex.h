@@ -6,7 +6,7 @@
 /*   By: titilamenace <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 21:33:57 by titilamenace      #+#    #+#             */
-/*   Updated: 2023/08/26 17:22:23 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:36:03 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ bool	get_paths(t_data *data, char **env);
 char	*find_path(t_data *data, char *cmd);
 
 void	exec_cmd(char *path_cmd, char **env, char **args);
+
+bool	get_files(t_data *data, char **av);
 
 #endif
