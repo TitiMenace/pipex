@@ -7,6 +7,7 @@
 
 
 # include <stdbool.h> 
+# include <sys/wait.h> 
 # include <fcntl.h> 
 # include <unistd.h> 
 # include <stdio.h> 
