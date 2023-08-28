@@ -19,6 +19,7 @@ typedef struct	s_data
 {
 	char	**paths;
 	char	*file_in;
+	int		*pipe_fd;
 	char	*file_out;
 }				t_data;
 
