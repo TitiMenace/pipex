@@ -6,7 +6,7 @@
 /*   By: titilamenace <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 23:22:24 by titilamenace      #+#    #+#             */
-/*   Updated: 2023/08/27 23:41:20 by titilamenace     ###   ########.fr       */
+/*   Updated: 2023/08/30 01:13:33 by titilamenace     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ bool	get_files(t_data *data, char **av, int ac);
 //Functions from file : dup_pipe.c
 void	dup_pipes(t_cmd *cmd);
 
+void	close_fds(t_cmd *cmds);
 
 //Functions from file : strjoin.c
 char	*cmd_join(char *s1, char *s2);
@@ -69,4 +70,5 @@ char	*find_path(t_data *data, char *str);
 
 void	exec_cmd(char *path_cmd, char **env, char **args);
 
+void	free_cmd_args(t_cmd *cmd);
 #endif

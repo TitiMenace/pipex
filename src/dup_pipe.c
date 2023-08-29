@@ -16,3 +16,9 @@ void	dup_pipes(t_cmd *cmd)
 		close(cmd->fd_out);
 	}
 }
+
+void	close_fds(t_cmd *cmd)
+{
+	if (cmd->close_fd != -1)
+		close(cmd->close_fd);
+}

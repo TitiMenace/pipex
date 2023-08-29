@@ -7,6 +7,7 @@
 
 typedef struct	s_cmd
 {
+	int		close_fd;
 	int		fd_in;
 	int		fd_out;
 	char	*path;

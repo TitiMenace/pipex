@@ -23,22 +23,31 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 	command_nb = ac - 3;
 	i = 0;
 	cmds_pids = init_pid(command_nb);
-	while (i <= command_nb)
+	av+=2;
+	while (i < command_nb)
 	{	
-		dprintf(2, "yes : %d\n", i);
-		get_cmd_args(&cmd, av[i + 1]);
+		get_cmd_args(&cmd, av[i]);
 		cmd.path = find_path(data, cmd.args[0]);
+		if (!pipe_init(&cmd, pipe_fd, i, command_nb))
+			return (false);
 		cmds_pids[i] = fork();
-		if (cmds_pids == 0)
+		if (cmds_pids[i] == 0)
 		{
-			if (!pipe_init(&cmd, pipe_fd, i, command_nb ))
-				return (false);
 			dup_pipes(&cmd);
+			close_fds(&cmd);	
 			exec_cmd(cmd.path, env, cmd.args);
+			exit(1);
 		}
 		else
+		{
+			if (i)
+				close(cmd.fd_in);
 			waitpid(cmds_pids[i], 0, WUNTRACED);	
-		i++;
+			i++;
+		}
+		free_cmd_args(&cmd);
+		free(cmd.path);
 	}
+	free(cmds_pids);
 	return (true);
 }

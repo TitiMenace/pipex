@@ -53,6 +53,7 @@ char	*find_path(t_data *data, char *str)
 			return (NULL);
 		if (access(path, F_OK) == 0)
 			return (path);
+		free(path);
 		i++;
 	}
 	return (NULL);
