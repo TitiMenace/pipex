@@ -49,7 +49,7 @@ char	*find_path(t_data *data, char *str)
 	while (data->paths[i])
 	{
 		path = cmd_join(data->paths[i], str);
-	if (!path)
+		if (!path && path[0] == '\0')
 			return (NULL);
 		if (access(path, F_OK) == 0)
 			return (path);

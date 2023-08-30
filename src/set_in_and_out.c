@@ -13,7 +13,10 @@ bool	set_in_and_out(t_data *data)
 		return (false);
 	file_out = open(data->file_out, O_RDWR | O_CREAT, 0664);
 	if (file_out == -1)
+	{
+		close(file_in);
 		return (false);
+	}
 	dup2(file_in, 0);
 	close(file_in);
 	dup2(file_out, 1);

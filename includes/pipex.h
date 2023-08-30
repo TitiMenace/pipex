@@ -6,7 +6,7 @@
 /*   By: titilamenace <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 23:22:24 by titilamenace      #+#    #+#             */
-/*   Updated: 2023/08/30 01:49:42 by titilamenace     ###   ########.fr       */
+/*   Updated: 2023/08/30 15:53:25 by titilamenace     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ bool	get_cmd_args(t_cmd *cmd, char *str);
 //Functions from file : main.c
 //Functions from file : get_files.c
 bool	get_files(t_data *data, char **av, int ac);
+
+bool	checking_relative_path(char *str);
 
 //Functions from file : free_world.c
 

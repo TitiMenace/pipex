@@ -17,7 +17,13 @@ void	free_data_paths(t_data *data)
 	free(data->paths);
 }
 
-
+bool	checking_relative_path(char	*str)
+{
+	if (str[0] == '.' && str[1] == '/')
+		return (true);
+	else
+		return (false);
+}
 
 
 int	main(int ac, char **av, char **env)
@@ -26,6 +32,7 @@ int	main(int ac, char **av, char **env)
 
 	if (ac < 5)
 		return (1);
+	
 	if (!get_files(&data, av, ac))
 		return (1);
 	if (!set_in_and_out(&data))
@@ -34,11 +41,12 @@ int	main(int ac, char **av, char **env)
 		free(data.file_out);
 		return (1);
 	}
-	get_paths(&data, env); // recup le env | grep PATH
+	get_paths(&data, env);
 	if (!pipe_loop(ac, av, env, &data))
 	{
 		free(data.file_in);
 		free(data.file_out);
+		free_data_paths(&data);	
 		return (1);
 	}
 	free_data_paths(&data);	

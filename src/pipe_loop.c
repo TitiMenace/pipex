@@ -38,8 +38,20 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 	av+=2;
 	while (i < command_nb)
 	{	
-		get_cmd_args(&cmd, av[i]);
-		cmd.path = find_path(data, cmd.args[0]);
+		if (av[i][0] == '\0')
+		{
+			free(cmds_pids);
+			return (false);
+		}
+		if (!get_cmd_args(&cmd, av[i]))
+		{
+			free(cmds_pids);
+			return (false);
+		}
+		if (!checking_relative_path(av[i]))
+			cmd.path = find_path(data, cmd.args[0]);
+		else
+			cmd.path = ft_strdup(av[i]);
 		if (!cmd.path)
 		{
 			free(cmds_pids);
