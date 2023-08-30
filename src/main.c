@@ -46,7 +46,8 @@ int	main(int ac, char **av, char **env)
 		return (1);
 	if (!set_in_and_out(&data, av))
 	{
-		free(data.file_in);
+		if (!data.here_doc)
+			free(data.file_in);
 		free(data.file_out);
 		return (1);
 	}
@@ -59,7 +60,8 @@ int	main(int ac, char **av, char **env)
 		return (1);
 	}
 	free_data_paths(&data);	
-	free(data.file_in);
+	if (!data.here_doc)
+		free(data.file_in);
 	free(data.file_out);
 	return (0);
 }

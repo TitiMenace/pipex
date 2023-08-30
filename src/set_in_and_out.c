@@ -22,10 +22,11 @@ bool	set_in_and_out(t_data *data, char **av)
 	}
 	else
 	{
+		
 		file_in = here_doc(av[2]);
 		if (file_in == -1)
 			return (false);
-		file_out = open(data->file_out, O_RDWR | O_APPEND, 0664);
+		file_out = open(data->file_out, O_RDWR | O_CREAT | O_APPEND, 0664);
 		if (file_out == -1)
 		{
 			close(file_in);

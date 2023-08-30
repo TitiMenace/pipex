@@ -3,6 +3,16 @@
 #include "struct.h"
 #include "includes.h"
 
+int		ft_strncmp(char *s1, char *s2, int len)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < len - 1)
+		i++;
+	return (s1[i] - s2[i]);
+}
+
 int	ft_putstr_fd(char *str, int fd)
 {
 	return (write(fd, str, ft_strlen(str)));
@@ -23,7 +33,7 @@ int	here_doc(char *limiter)
 		line = get_next_line(0);
 		while (line && line[0])
 		{
-			if (ft_strcmp(line, limiter) == 0)
+			if (ft_strncmp(line, limiter, ft_strlen(line) - 1) == 0)
 				break;
 			ft_putstr_fd(line, pipe_fd[1]);
 			free(line);
