@@ -4,6 +4,12 @@
 # include "pipex.h"
 # include "struct.h"
 
+# ifndef BUFFER_SIZE_H
+#  define BUFFER_SIZE_H
+
+	#define BUFFER_SIZE 42
+# endif
+
 
 
 # include <stdbool.h> 

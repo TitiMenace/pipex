@@ -34,6 +34,8 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 
 	command_nb = ac - 3;
 	i = 0;
+	if (data->here_doc == true)
+		av+=1;
 	cmds_pids = init_pid(command_nb);
 	av+=2;
 	while (i < command_nb)

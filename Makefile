@@ -6,13 +6,14 @@
 #    By: tschecro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 05:15:52 by tschecro          #+#    #+#              #
-#    Updated: 2023/08/27 23:28:58 by titilamenace     ###   ########.fr        #
+#    Updated: 2023/08/30 19:14:46 by titilamenace     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_FILES		=	main.c split.c strjoin.c get_cmd_args.c get_cmd.c \
 					get_cmd_utils.c get_files.c dup_pipe.c free_world.c \
-					new_pipe.c pipe_loop.c set_in_and_out.c
+					new_pipe.c pipe_loop.c set_in_and_out.c here_doc.c \
+					get_next_line.c get_next_line_utils.c utils.c
   
 SRC_DIR 		= src
 

@@ -25,6 +25,13 @@ bool	checking_relative_path(char	*str)
 		return (false);
 }
 
+void	check_here_doc(char *str, t_data *data)
+{
+	if (ft_strcmp(str, "here_doc") == 0)
+		data->here_doc = true;
+	else
+		data->here_doc = false;
+}
 
 int	main(int ac, char **av, char **env)
 {
@@ -32,10 +39,12 @@ int	main(int ac, char **av, char **env)
 
 	if (ac < 5)
 		return (1);
-	
+	check_here_doc(av[1], &data);
+	if (data.here_doc == true && ac < 6)
+		return (1);
 	if (!get_files(&data, av, ac))
 		return (1);
-	if (!set_in_and_out(&data))
+	if (!set_in_and_out(&data, av))
 	{
 		free(data.file_in);
 		free(data.file_out);
