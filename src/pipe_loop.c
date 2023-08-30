@@ -2,6 +2,18 @@
 #include "struct.h"
 #include "includes.h"
 
+void	wait_pids(pid_t	*cmds_pids, int command_nb)
+{
+	int	i;
+
+	i = 0;
+	while (i < command_nb)
+	{
+		waitpid(cmds_pids[i], 0, WUNTRACED);	
+		i++;
+	}
+}
+
 pid_t	*init_pid(int command_nb)
 {
 	pid_t	*tab;
@@ -28,6 +40,13 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 	{	
 		get_cmd_args(&cmd, av[i]);
 		cmd.path = find_path(data, cmd.args[0]);
+		if (!cmd.path)
+		{
+			free(cmds_pids);
+			free_cmd_args(&cmd);
+			dprintf(2, "cat: pipileon: Aucun fichier ou dossier de ce type\nnotexistingcmd : commande introuvable\n");
+			return (false);
+		}
 		if (!pipe_init(&cmd, pipe_fd, i, command_nb))
 			return (false);
 		cmds_pids[i] = fork();
@@ -42,12 +61,12 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 		{
 			if (i)
 				close(cmd.fd_in);
-			waitpid(cmds_pids[i], 0, WUNTRACED);	
 			i++;
 		}
 		free_cmd_args(&cmd);
 		free(cmd.path);
 	}
+	wait_pids(cmds_pids, command_nb);	
 	free(cmds_pids);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: titilamenace <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 23:22:24 by titilamenace      #+#    #+#             */
-/*   Updated: 2023/08/30 01:13:33 by titilamenace     ###   ########.fr       */
+/*   Updated: 2023/08/30 01:49:42 by titilamenace     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,13 @@ char	*first_word(char **str, char *charset);
 char	**ft_split(char *str, char *charset);
 
 //Functions from file : pipe_loop.c
+
+void	wait_pids(pid_t *cmds_pids, int command_nb);
+
 pid_t	*init_pid(int command_nb);
 
 bool	pipe_loop(int ac, char **av, char **env, t_data *data);
+
 
 //Functions from file : set_in_and_out.c
 bool	set_in_and_out(t_data *data);
