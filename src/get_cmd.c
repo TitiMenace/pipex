@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_cmd.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/21 19:49:56 by tschecro          #+#    #+#             */
+/*   Updated: 2023/09/21 19:50:38 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 #include "struct.h"
 #include "includes.h"
@@ -7,7 +19,7 @@ bool	str_check(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while(s2[i])
+	while (s2[i])
 	{
 		if (s1[i] != s2[i])
 			return (false);
@@ -20,13 +32,13 @@ bool	str_check(char *s1, char *s2)
 
 bool	get_paths(t_data *data, char **env)
 {	
-	int i;
+	int	i;
 
 	i = 0;
 	while (*env)
 	{
 		if (str_check(env[i], "PATH="))
-			break;
+			break ;
 		i++;
 	}
 	if (!env[i])
@@ -58,7 +70,7 @@ char	*find_path(t_data *data, char *str)
 	}
 	return (NULL);
 }
-	
+
 void	exec_cmd(char *path_cmd, char **env, char **args)
 {
 	execve(path_cmd, args, env);

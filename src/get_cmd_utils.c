@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_cmd_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/21 19:37:55 by tschecro          #+#    #+#             */
+/*   Updated: 2023/09/21 19:38:04 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 #include "struct.h"
 #include "includes.h"
-
 
 char	*ft_strdup(const char *s)
 {
@@ -20,9 +31,6 @@ char	*ft_strdup(const char *s)
 	dup[i] = 0;
 	return (dup);
 }
-
-
-
 
 int	ft_strlen(char *str)
 {
