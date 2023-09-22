@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 19:48:15 by tschecro          #+#    #+#             */
-/*   Updated: 2023/09/21 19:48:38 by tschecro         ###   ########.fr       */
+/*   Created: 2023/09/22 18:32:15 by tschecro          #+#    #+#             */
+/*   Updated: 2023/09/22 18:32:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "includes.h"
 # include "struct.h"
+# include "includes.h"
 
 //Functions from file : get_cmd.c
 bool	str_check(char *s1, char *s2);
@@ -39,7 +39,7 @@ int		ft_strncmp(char *s1, char *s2, int len);
 
 int		ft_putstr_fd(char *str, int fd);
 
-void	child_here_doc(int *pipe_fd, char *limiter);
+void	free_and_new_line(char *line);
 
 int		here_doc(char *limiter);
 
@@ -91,7 +91,7 @@ pid_t	*init_pid(int command_nb);
 
 bool	set_before_fork(int *i, char **av, pid_t *cmds_pids, t_cmd *cmd);
 
-void	command_here_doc(t_data *data, char **av, int *command_nb);
+void	command_here_doc(t_data *data, char ***av, int *command_nb);
 
 bool	pipe_loop(int ac, char **av, char **env, t_data *data);
 

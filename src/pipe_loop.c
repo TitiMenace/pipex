@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:40:54 by tschecro          #+#    #+#             */
-/*   Updated: 2023/09/21 19:37:34 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:28:43 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ bool	set_before_fork(int *i, char **av, pid_t *cmds_pids, t_cmd *cmd)
 	return (true);
 }
 
-void	command_here_doc(t_data *data, char **av, int *command_nb)
+void	command_here_doc(t_data *data, char ***av, int *command_nb)
 {
 	if (data->here_doc == true)
 	{
-		av += 1;
-		(*command_nb) -= 1;
+		*av += 1;
+		*command_nb = *command_nb - 1;
 	}
 }
 
@@ -70,7 +70,7 @@ bool	pipe_loop(int ac, char **av, char **env, t_data *data)
 
 	command_nb = ac - 3;
 	i = 0;
-	command_here_doc(data, av, &command_nb);
+	command_here_doc(data, &av, &command_nb);
 	cmds_pids = init_pid(command_nb);
 	av += 2;
 	while (i < command_nb)

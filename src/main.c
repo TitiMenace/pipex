@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:37:08 by tschecro          #+#    #+#             */
-/*   Updated: 2023/09/21 18:40:22 by tschecro         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:20:48 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ int	main(int ac, char **av, char **env)
 	}
 	get_paths(&data, env);
 	if (!pipe_loop(ac, av, env, &data))
+	{
 		free_fds_and_path(&data);
+	}
 	if (!data.here_doc)
 		free(data.file_in);
 	free(data.file_out);

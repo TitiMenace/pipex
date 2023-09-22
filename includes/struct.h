@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/22 18:35:54 by tschecro          #+#    #+#             */
+/*   Updated: 2023/09/22 18:37:38 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCT_H
 # define STRUCT_H
 
@@ -6,7 +18,7 @@
 
 # include <stdbool.h>
 
-typedef struct	s_cmd
+typedef struct s_cmd
 {
 	int		close_fd;
 	int		fd_in;
@@ -15,9 +27,7 @@ typedef struct	s_cmd
 	char	**args;
 }				t_cmd;
 
-
-
-typedef struct	s_data
+typedef struct s_data
 {
 	bool	here_doc;
 	char	**paths;
@@ -25,6 +35,5 @@ typedef struct	s_data
 	int		*pipe_fd;
 	char	*file_out;
 }				t_data;
-
 
 #endif
